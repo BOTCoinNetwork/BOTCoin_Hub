@@ -5,11 +5,11 @@
         <h2>{{ $t('homeSection.introTitle') }}</h2>
         <p class="content">{{ $t('homeSection.introContent') }}</p>
         <div class="build-buttons build-buttons-one">
-          <button class="build-button" >{{ $t('homeSection.deployButton') }}</button>
+          <button class="build-button" @click="handleDeployClick">{{ $t('homeSection.deployButton') }}</button>
           <span>{{ $t('homeSection.deployButtonText') }}</span>
         </div>
         <div class="build-buttons">
-          <button class="build-button">{{ $t('homeSection.buildButton') }}</button>
+          <button class="build-button" @click="handleBuildClick">{{ $t('homeSection.buildButton') }}</button>
           <span>{{ $t('homeSection.buildButtonText') }}</span>
         </div>
       </div>
@@ -68,15 +68,26 @@
 </template>
 
 <script setup>
+
+import github from '@/assets/image/github.png'
+import telegram from '@/assets/image/telegram.png'
+import x from '@/assets/image/x.png'
+
 const links = [
   'https://github.com/BOTCoinNetwork/Botcoin',
   'https://t.me/BOTCoin_Network',
   'https://x.com/BOTCoinNetwork'
 ]
+
+const handleDeployClick = () => {
+  window.location.href = 'https://github.com/BOTCoinNetwork/Botcoin';
+};
+
+const handleBuildClick = () => {
+  window.location.href = 'https://botcoin.network/docs/html/index.html';
+};
 const linksImg = [
-  './src/assets/image/github.png',
-  './src/assets/image/telegram.png',
-  './src/assets/image/x.png',
+  github,telegram, x,
 ]
 </script>
 
