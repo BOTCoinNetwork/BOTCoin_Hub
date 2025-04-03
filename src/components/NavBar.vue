@@ -24,7 +24,7 @@
           <div class="dropdown-content">
             <a href="https://explorer.botcoin.network/" target="_blank">{{ $t('explorer') }}</a>
             <a href="https://explorer.botcoin.network/" target="_blank">{{ $t('wallet') }}</a>
-            <a href="https://explorer.botcoin.network/" target="_blank">{{ $t('ros2') }}</a>
+            <a href="https://ros.org/" target="_blank">{{ $t('ros2') }}</a>
           </div>
         </div>
 
