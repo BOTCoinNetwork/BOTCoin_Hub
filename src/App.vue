@@ -7,14 +7,6 @@ import NavBar from '@/components/NavBar.vue'
   <router-view />
 </template>
 
-<style>
-#app {
-  margin-top: 80px;
-  padding: 2rem;
-  max-width: 100vw;
-}
-</style>
-
 <style scoped>
 
   header {
@@ -27,7 +19,5 @@ import NavBar from '@/components/NavBar.vue'
   .logo {
     margin: 0 2rem 0 0;
   }
-
   
-
 </style>

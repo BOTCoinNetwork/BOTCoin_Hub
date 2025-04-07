@@ -99,6 +99,9 @@ document.addEventListener('click', handleClickOutside)
   align-items: center;
   padding: 0 2rem;
 }
+.container a,.container button{
+  font-size: 1rem;
+}
 
 .menu-container {
   display: flex;
@@ -223,8 +226,8 @@ document.addEventListener('click', handleClickOutside)
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 6.5rem;
-    left: 2rem;
+    top: 4.4rem;
+    left: 0.3rem;
     background: rgba(0, 0, 0, 0.9);
     padding: 1rem;
     border-radius: 4px;

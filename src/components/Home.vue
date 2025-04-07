@@ -171,25 +171,26 @@ const linksImg = [
 .economy h4 {
   text-align:center;
   font-size: 1.5rem;
-  color:rgb(83, 235, 235);
+  color:rgb(172, 177, 177);
   margin-bottom: 1rem;
 }
+
 .residualValue {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 1rem;
 }
+
 .residualValue span {
   color:rgb(253, 252, 252);
   font-size: 1.5rem;
 }
+
 .residualValue span.residualValue-left {
   color:rgb(247, 167, 114);
-  font-size: 1.5rem;
 }
 .residualValue span.residualValue-right{
   color:rgb(143, 172, 216);
-  font-size: 1.5rem;
 }
 .economy-content img {
   width: 100%;
@@ -216,6 +217,9 @@ const linksImg = [
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 1rem;
+  }
   .intro {
     flex-direction: column;
   }
@@ -236,6 +240,9 @@ const linksImg = [
     margin: 0.2rem auto;
     display: block;
     text-align: center;
+  }
+  .residualValue span {
+    font-size: 1rem;
   }
   .social-links {
     flex-direction: column;
