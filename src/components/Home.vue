@@ -128,11 +128,12 @@ const linksImg = [
   height: auto;
 }
 .build-buttons-one {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .build-button {
   width:5rem;
+  height: 2.2rem;
   margin-top: 3rem;
   margin-left: 2rem;
   background-color:#42b983;
@@ -212,6 +213,38 @@ const linksImg = [
   margin-right: 0.3rem;
   float: left;
   margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+  }
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+  .build-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+  }
+  .build-button {
+    width: 40%;
+    margin: 0rem auto;
+  }
+  .build-buttons span {
+    margin: 0.2rem auto;
+    display: block;
+    text-align: center;
+  }
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-links a {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 @media (min-width: 768px) {

@@ -1,16 +1,18 @@
 <template>
   <nav class="navbar">
+    <button class="menu-toggle" @click="toggleMenu">☰</button>
     <div class="container">
+      
       <router-link to="/" class="logo">
         <img src="@/assets/Botcoin_logo.png" alt="BOTCoin Logo" class="logo-img">
         <span class="logo-text">BOTCoin</span>
       </router-link>
       
-      <div class="menu-container">
+      <div class="menu-container nav-links" :class="{ active: showMenu }">
         <router-link to="/" class="menu-item">{{ $t('home') }}</router-link>
         
         <div class="dropdown">
-          <button class="dropdown-toggle">{{ $t('develop') }}</button>
+          <button class="dropdown-toggle" @click="toggleDropdown">{{ $t('develop') }}</button>
           <div class="dropdown-content">
             <a href="https://github.com/BOTCoinNetwork/Botcoin" target="_blank">{{ $t('botCoin') }}</a>
             <a href="https://botcoin.network/docs/html/botcoin_api.html" target="_blank">{{ $t('api') }}</a>
@@ -20,7 +22,7 @@
         </div>
 
         <div class="dropdown">
-          <button class="dropdown-toggle">{{ $t('ecology') }}</button>
+          <button class="dropdown-toggle" @click="toggleDropdown">{{ $t('ecology') }}</button>
           <div class="dropdown-content">
             <a href="https://explorer.botcoin.network/" target="_blank">{{ $t('explorer') }}</a>
             <a href="https://explorer.botcoin.network/" target="_blank">{{ $t('wallet') }}</a>
@@ -48,12 +50,33 @@ import { ref } from 'vue'
 
 const { locale } = useI18n()
 const currentLanguage = ref(locale.value)
+const showMenu = ref(false)
 
 const switchLanguage = (lang) => {
   locale.value = lang
   currentLanguage.value = lang
   document.documentElement.lang = lang
 }
+
+const toggleMenu = () => {
+  showMenu.value = !showMenu.value
+}
+
+const toggleDropdown = (event) => {
+  const dropdownContent = event.currentTarget.nextElementSibling
+  dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block'
+}
+
+const handleClickOutside = (event) => {
+  const dropdowns = document.querySelectorAll('.dropdown-content')
+  dropdowns.forEach(dropdown => {
+    if (!dropdown.parentElement.contains(event.target)) {
+      dropdown.style.display = 'none'
+    }
+  })
+}
+
+document.addEventListener('click', handleClickOutside)
 </script>
 
 <style scoped>
@@ -84,7 +107,9 @@ const switchLanguage = (lang) => {
   gap: 1.5rem;
   flex-wrap: wrap;
 }
-
+.menu-toggle {
+  display: none;
+}
 .logo {
   display: flex;
   align-items: center;
@@ -173,11 +198,36 @@ const switchLanguage = (lang) => {
 }
 
 @media (max-width: 768px) {
+  .navbar{
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+    margin-left:1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
   .logo {
     margin-right: 1rem;
   }
   .logo-img {
     width: 30px;
+  }
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 6.5rem;
+    left: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    border-radius: 4px;
   }
   .logo-text {
     font-size: 1.2rem;
